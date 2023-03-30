@@ -6,11 +6,7 @@ You will be assessed on your:
 * Use of good code patterns for maintainability, reusability, performance
 * Use of common React core features, suggested libraries and typescript implementation
 * Styling and responsiveness of the component
-* Testing of the component
-
-You have X TIME to complete as much of this component as you can, its ok if you do not get through all of the requirements below
-
- 
+* Testing of the component 
 
 #### Requirements
 You will be fetching data from a REST GET endpoint at:
