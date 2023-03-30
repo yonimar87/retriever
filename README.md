@@ -21,6 +21,7 @@ quoteId = cfd708724351461887e3fa2ced5b3a83kEH-sv7HdVZsawDs5pcp_BrE2B_Ct7sF
 
 The data format of the response will be: 
 
+```
 Quote
   recipientName: optional string
   recipientEmail: optional string
@@ -69,6 +70,7 @@ OrgHeader
 SignedUrl
   url: required string
   secondsUntilExpiration: required integer
+```
 
 #### UI design / screenshot
 You aim is to get the component looking close to the following screenshots
