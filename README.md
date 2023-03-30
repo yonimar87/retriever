@@ -8,6 +8,17 @@ You will be assessed on your:
 * Styling and responsiveness of the component
 * Testing of the component 
 
+#### To Run
+
+You will need to run the following:
+```
+npm install
+```
+...and then...
+```
+npm start
+```
+
 #### Requirements
 You will be fetching data from a REST GET endpoint at:
 
