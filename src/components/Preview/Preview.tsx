@@ -1,8 +1,10 @@
-import React from 'react'
+import {useState} from 'react'
 import {
   Box,
   styled,
   Typography,
+  Select,
+  MenuItem
 } from '@mui/material'
 import { QuotePreview } from '../../types/types'
 import PreviewTable from './PreviewTable'
@@ -50,7 +52,16 @@ const BillingDetail = styled(Box)(() => ({
 
 const Preview = ({
   quote,
-}: PreviewProps) => (
+}: PreviewProps) => {
+  const [filter, setFilter] = useState<string>('')
+  const materialTypeArray = quote.lineItems.filter((element) => element.type === "MATERIALS")
+  const serviceTypeArray = quote.lineItems.filter((element) => element.type === "SERVICE")
+
+  const handleChange = (value: string) => {
+    console.log('string, ', value)
+  }
+
+  return (
   <PreviewContainer>
     <DetailsContainer>
       <DetailsSubContainer>
@@ -58,7 +69,17 @@ const Preview = ({
         <Typography variant="body2">{getAddressString(quote?.address)}</Typography>
         <Typography variant="body2">{quote.recipientEmail}</Typography>
         <Typography variant="body2">{quote.recipientPhone}</Typography>
-      </DetailsSubContainer>
+        <Select
+    labelId="select-filter"
+    id="select-filter-value"
+    value={filter}
+    label="Type"
+    onChange={handleChange}
+  >
+    <MenuItem value={''}></MenuItem>
+    <MenuItem value={'services'}>Services</MenuItem>
+    <MenuItem value={'material'}>Material</MenuItem>
+  </Select>      </DetailsSubContainer>
       <DetailsSubContainer>
         <Typography variant="subtitle2">Quote</Typography>
         <BillingDetail>
@@ -75,10 +96,9 @@ const Preview = ({
         </BillingDetail>
       </DetailsSubContainer>
     </DetailsContainer>
-    <PreviewTable
-      // TODO
+    <PreviewTable materialTypeArray={materialTypeArray} serviceTypeArray={serviceTypeArray} quote={quote} filter={filter}
     />
   </PreviewContainer>
-)
+)}
 
 export default Preview

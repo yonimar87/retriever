@@ -1,10 +1,8 @@
-// TODO add other fields
-
 export type BillableItemsType = 'MATERIALS' | 'SERVICE'
 
 export interface Address {
   address1?: string,
-  address2?: string,
+  address2?: string | null,
   suburb?: string,
   state?: string,
   country?: string,
@@ -13,13 +11,33 @@ export interface Address {
 
 export interface QuotePreview {
   recipientName?: string,
-  recipientEmail?: string,
-  recipientPhone?: string,
+  recipientEmail?: string | null,
+  recipientPhone?: string | null,
   address?: Address,
   quoteNumber?: string,
-  reference?: string,
+  reference?: string | null,
   total?: number,
   dateCaptured?: string,
   expiry?: string,
-  // TODO
+  lineItems: Array<LineItem>,
+  orgHeader: OrgHeader
+}
+
+export interface LineItem {
+  name: string,
+  saleCost:number,
+  salesDescription:string,
+  subtotal:number,
+  taxTotal:number,
+  total:number,
+  type:string,
+  unitAmount:number
+}
+
+export interface OrgHeader {
+  address: Address,
+  email: string,  
+  orgLogoUrl?: string | null, 
+  orgName: string,  
+  phone?: string | null
 }

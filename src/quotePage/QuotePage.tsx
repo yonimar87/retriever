@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   Box,
   Button,
@@ -7,6 +7,8 @@ import {
 } from '@mui/material'
 import { QuotePreview } from '../types/types'
 import Preview from '../components/Preview/Preview'
+import DetailedHeader from '../components/DetailedHeader/DetailedHeader'
+import { getQuotePreview } from '../api/apiCalls';
 
 interface QuotePageProps {
   
@@ -49,11 +51,24 @@ const QuotePage = ({
   
 }: QuotePageProps) => {
   const [quote, setQuote] = useState<QuotePreview>()
-  const id = 'cfd708724351461887e3fa2ced5b3a83kEH-sv7HdVZsawDs5pcp_BrE2B_Ct7sF'
+  const [showDetails, setShowDetails] = useState<Boolean>(false)
+  const quoteId = 'b18e017978a5419198abbc3ac139bbb5hsv80eDhGnyyD5XLFk_yVDIptRTGatiD';
 
+  useEffect(() => {
+    getQuotePreview(quoteId)
+      .then(data => {
+        setQuote(data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, [])
+
+  const onClick = () => setShowDetails(!showDetails)
   return (
     <>
     <PortalContainer>
+      {showDetails && quote && <DetailedHeader quote={quote}/>}
       {quote && (
         <Preview
           quote={quote}
@@ -64,8 +79,10 @@ const QuotePage = ({
       <Row>
         <Button
           variant="contained"
+          onClick={onClick}
+          color={showDetails ? 'secondary' : 'primary'}
         >
-          Show details
+          {showDetails ? 'Hide details' : 'Show Details'}
         </Button>
       </Row>
       <Row sx={{ gap: '5px' }}>

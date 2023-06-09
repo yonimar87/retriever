@@ -11,3 +11,5 @@ export function getAddressString(address?: Address) {
   ].filter((s) => s !== null && s !== undefined && s !== '')
   return addressParts.join(', ')
 }
+
+export const formatToCurrency = (num: number) => (Math.round(num * 100) / 100).toFixed(2);
