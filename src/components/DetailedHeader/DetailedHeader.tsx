@@ -1,14 +1,9 @@
-import React from 'react'
 import {
   Box,
   styled,
   Typography,
 } from '@mui/material'
-import { QuotePreview } from '../../types/types'
-
-interface PreviewProps {
-  quote: QuotePreview,
-}
+import { PreviewProps } from '../../types/types'
 
 const PreviewContainer = styled(Box)(({ theme }) => ({
   display: 'flex',

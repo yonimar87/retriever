@@ -1,10 +1,9 @@
-import React from "react";
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import "@testing-library/jest-dom";
-import Preview from "./Preview";
+import DetailedHeader from "./DetailedHeader";
 
-describe(" Preview", () => {
+describe(" DetailedHeader", () => {
     const quote = {
         quoteNumber: "Q-0008",
         recipientName: "Anytime Fitness",
@@ -87,7 +86,7 @@ describe(" Preview", () => {
         },
     };
     it("should render successfully", () => {
-        const { baseElement } = render(<Preview quote={quote} />);
+        const { baseElement } = render(<DetailedHeader quote={quote} />);
         expect(baseElement).toBeTruthy();
     });
 });

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import {
   Box,
   Button,
@@ -9,10 +9,6 @@ import { QuotePreview } from '../types/types'
 import Preview from '../components/Preview/Preview'
 import DetailedHeader from '../components/DetailedHeader/DetailedHeader'
 import { getQuotePreview } from '../api/apiCalls';
-
-interface QuotePageProps {
-  
-}
 
 export const PortalContainer = styled(Box)(({ theme }) => ({
   backgroundColor: '#D3D3D3',
@@ -47,9 +43,7 @@ export const Row = styled(Box)(() => ({
 }))
 
 
-const QuotePage = ({
-  
-}: QuotePageProps) => {
+const QuotePage = () => {
   const [quote, setQuote] = useState<QuotePreview>()
   const [showDetails, setShowDetails] = useState<Boolean>(false)
   const quoteId = 'b18e017978a5419198abbc3ac139bbb5hsv80eDhGnyyD5XLFk_yVDIptRTGatiD';

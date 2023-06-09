@@ -7,7 +7,7 @@ describe(' Util Functions', () => {
   it('should format to currency', () => {
     const testNumber = 7
     const testNumber2 = 15.5
-    expect(formatToCurrency(testNumber)).toBe("7.50")
+    expect(formatToCurrency(testNumber)).toBe("7.00")
     expect(formatToCurrency(testNumber2)).toBe("15.50")
   })
   it('should sanitise address', () => {

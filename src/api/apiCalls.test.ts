@@ -1,3 +1,5 @@
+import '@testing-library/jest-dom/extend-expect'
+import '@testing-library/jest-dom'
 import { getQuotePreview } from './apiCalls'
 import axios from 'axios'
 import { cleanup } from '@testing-library/react'

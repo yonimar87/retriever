@@ -12,4 +12,6 @@ export function getAddressString(address?: Address) {
   return addressParts.join(', ')
 }
 
-export const formatToCurrency = (num: number) => (Math.round(num * 100) / 100).toFixed(2);
+export const formatToCurrency = (num?: number) =>{
+  if (num) return (Math.round(num * 100) / 100).toFixed(2)
+};

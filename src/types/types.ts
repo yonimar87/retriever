@@ -1,5 +1,8 @@
 export type BillableItemsType = 'MATERIALS' | 'SERVICE'
 
+export interface PreviewProps {
+  quote: QuotePreview,
+}
 export interface Address {
   address1?: string,
   address2?: string | null,
@@ -11,7 +14,7 @@ export interface Address {
 
 export interface QuotePreview {
   recipientName?: string,
-  recipientEmail?: string | null,
+  recipientEmail?: string,
   recipientPhone?: string | null,
   address?: Address,
   quoteNumber?: string,
@@ -20,7 +23,9 @@ export interface QuotePreview {
   dateCaptured?: string,
   expiry?: string,
   lineItems: Array<LineItem>,
-  orgHeader: OrgHeader
+  orgHeader: OrgHeader,
+  subtotal: number,
+  taxTotal: number,
 }
 
 export interface LineItem {
@@ -40,4 +45,11 @@ export interface OrgHeader {
   orgLogoUrl?: string | null, 
   orgName: string,  
   phone?: string | null
+}
+
+export interface PortalTableProps {
+  materialTypeArrayProps: Array<LineItem>;
+  serviceTypeArrayProps: Array<LineItem>;
+  quote: QuotePreview;
+  filter: string;
 }
