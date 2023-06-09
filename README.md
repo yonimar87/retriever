@@ -4,6 +4,8 @@ The app was written without Redux as there wasn't a need to introduce state mana
 
 Normally I would have individual CSS files with the styled components in them, then import them into each individual component. However, as the initial skeleton of the app had the styledComponents in each individual file, I opted to keep that structure.
 
+I would also have used a GRID to achieve better results and not have to use empty TableCells, however, as the skeleton for the Table was there, and some CSS already implemented, I kept it as a Table.
+
 I have moved all Types/interfaces to types.ts as a couple of them were being used in 2-3 spots, and it made sense to have all of them in a central location.
 
 I've also created a CONSTANTS.ts file to ensure that some variables are consistent across components.
